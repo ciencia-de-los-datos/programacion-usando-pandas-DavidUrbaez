@@ -66,9 +66,11 @@ def pregunta_04():
     Name: _c2, dtype: float64
     """
     tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
-    
+
     tbl0 = tbl0.astype({'_c2': 'float64'})
-    return tbl0.groupby(by="_c1").mean().loc[:, "_c2"]
+    out = tbl0.groupby(by="_c1").mean().loc[:, "_c2"]
+    out.index.name = ""
+    return out
 
 
 def pregunta_05():
