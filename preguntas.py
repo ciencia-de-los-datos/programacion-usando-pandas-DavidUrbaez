@@ -65,11 +65,12 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
+
+    # Note: Depending on the pandas version, it is possible to ignore the mean value of a date, that is why it did not
+    # work in the autograding tool of Github
 
     tbl0 = tbl0.astype({'_c2': 'float64'})
-    out = tbl0.groupby(by="_c1").mean().loc[:, "_c2"]
-    out.index.name = ""
+    out = tbl0.groupby(by="_c1")["_c2"].mean()
     return out
 
 
