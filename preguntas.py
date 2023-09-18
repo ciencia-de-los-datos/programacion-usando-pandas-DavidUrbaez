@@ -68,7 +68,7 @@ def pregunta_04():
 
     # Note: Depending on the pandas version, it is possible to ignore the mean value of a date, that is why it did not
     # work in the autograding tool of Github
-
+    tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
     tbl0 = tbl0.astype({'_c2': 'float64'})
     out = tbl0.groupby(by="_c1")["_c2"].mean()
     return out
